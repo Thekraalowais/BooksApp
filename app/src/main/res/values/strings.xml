@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ListingBookApp</string>
+    <string name="Tab1">Welcome</string>
+    <string name="Tab2">Search for book</string>
+    <string name="welcome">Welcome</string>
+    <string name="no">No books found</string>
+    <string name="no_internet_connection">No internet connection</string>
+
+</resources>
