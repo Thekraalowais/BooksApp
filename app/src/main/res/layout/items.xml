@@ -7,11 +7,13 @@
 
     <TextView
         android:id="@+id/title"
+        android:background="@color/colorAccent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Title" />
 
     <TextView
+        android:background="@color/colorPrimaryDark"
         android:id="@+id/author"
         tools:text="Author name"
         android:layout_width="match_parent"
