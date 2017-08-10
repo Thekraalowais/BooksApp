@@ -29,9 +29,9 @@ public class ListingBooksAdapter extends ArrayAdapter<ListingBooks> {
         ListingBooks currentPosition = getItem(position);
         TextView title = (TextView) listItemView.findViewById(R.id.title);
         TextView author = (TextView) listItemView.findViewById(R.id.author);
-
         title.setText(currentPosition.getTitle());
         author.setText(currentPosition.getAuthor());
+
         return listItemView;
     }
 }

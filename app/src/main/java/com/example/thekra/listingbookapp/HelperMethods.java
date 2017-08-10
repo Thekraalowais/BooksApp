@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class HelperMethods {
+
     private HelperMethods() {
 
     }
@@ -28,10 +29,12 @@ public final class HelperMethods {
         String jsonResponse = null;
         try {
             jsonResponse = makeHTTPResquest(url);
+
         } catch (IOException e) {
             Log.e("bookData", "Error to make http request", e);
         }
         List<ListingBooks> books = extractBookFromJson(jsonResponse);
+
         return books;
     }
 
@@ -94,19 +97,26 @@ public final class HelperMethods {
     }
 
     private static List<ListingBooks> extractBookFromJson(String bookJSON) {
+
         if (TextUtils.isEmpty(bookJSON)) {
             return null;
         }
         List<ListingBooks> books = new ArrayList<>();
+
         try {
             JSONObject jsonResponse = new JSONObject(bookJSON);
+
             JSONArray booksArray = jsonResponse.getJSONArray("items");
+
             for (int i = 0; i < booksArray.length(); i++) {
                 JSONObject currentBook = booksArray.getJSONObject(i);
+
                 JSONObject info = currentBook.getJSONObject("volumeInfo");
                 String title = info.getString("title");
                 String author = info.getString("authors");
-                ListingBooks book = new ListingBooks(title, author);
+                JSONObject buyinfo = currentBook.getJSONObject("saleInfo");
+                String booklink = buyinfo.getString("buyLink");
+                ListingBooks book = new ListingBooks(title, author, booklink);
                 books.add(book);
             }
 
