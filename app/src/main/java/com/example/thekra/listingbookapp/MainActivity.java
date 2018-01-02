@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
                 NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
                 result = editText.getText().toString().trim();
+
+
                 if (result.matches("")) {
                     Toast.makeText(MainActivity.this, "Please enter book title and author", Toast.LENGTH_SHORT).show();
                     return;
